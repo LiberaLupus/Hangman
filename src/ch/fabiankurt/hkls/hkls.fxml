@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="333.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.fabiankurt.hkls.Controller">
+   <children>
+      <ImageView fitHeight="492.0" fitWidth="333.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../../../../piq_85104_400x400.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bild" fitHeight="300.0" fitWidth="270.0" layoutX="30.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/0.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="ueberpruefenb" layoutX="77.0" layoutY="435.0" mnemonicParsing="false" onAction="#ueberpruefen" text="Überprüfen" />
+      <Label fx:id="wort" layoutX="83.0" layoutY="330.0" text="Drücken Sie neu um zu beginnen" textFill="WHITE" />
+      <Button fx:id="neub" layoutX="196.0" layoutY="435.0" mnemonicParsing="false" onAction="#neu" text="Neu" />
+      <Button fx:id="ab" layoutX="21.0" layoutY="363.0" mnemonicParsing="false" onAction="#druecken" text="A" visible="false" />
+      <Button fx:id="bb" layoutX="45.0" layoutY="363.0" mnemonicParsing="false" onAction="#druecken" text="B" visible="false" />
+      <Button fx:id="cb" layoutX="68.0" layoutY="363.0" mnemonicParsing="false" onAction="#druecken" text="C" visible="false" />
+      <Button fx:id="db" layoutX="91.0" layoutY="363.0" mnemonicParsing="false" onAction="#druecken" text="D" visible="false" />
+      <Button fx:id="eb" layoutX="115.0" layoutY="363.0" mnemonicParsing="false" onAction="#druecken" text="E" visible="false" />
+      <Button fx:id="fb" layoutX="137.0" layoutY="363.0" mnemonicParsing="false" onAction="#druecken" text="F" visible="false" />
+      <Button fx:id="gb" layoutX="159.0" layoutY="363.0" mnemonicParsing="false" onAction="#druecken" text="G" visible="false" />
+      <Button fx:id="hb" layoutX="183.0" layoutY="363.0" mnemonicParsing="false" onAction="#druecken" text="H" visible="false" />
+      <Button fx:id="ib" layoutX="207.0" layoutY="363.0" mnemonicParsing="false" onAction="#druecken" text="I" visible="false" />
+      <Button fx:id="jb" layoutX="226.0" layoutY="363.0" mnemonicParsing="false" onAction="#druecken" text="J" visible="false" />
+      <Button fx:id="kb" layoutX="246.0" layoutY="363.0" mnemonicParsing="false" onAction="#druecken" text="K" visible="false" />
+      <Button fx:id="lb" layoutX="269.0" layoutY="363.0" mnemonicParsing="false" onAction="#druecken" text="L" visible="false" />
+      <Button fx:id="mb" layoutX="291.0" layoutY="363.0" mnemonicParsing="false" onAction="#druecken" text="M" visible="false" />
+      <Button fx:id="nb" layoutX="21.0" layoutY="388.0" mnemonicParsing="false" onAction="#druecken" text="N" visible="false" />
+      <Button fx:id="ob" layoutX="44.0" layoutY="388.0" mnemonicParsing="false" onAction="#druecken" text="O" visible="false" />
+      <Button fx:id="pb" layoutX="68.0" layoutY="388.0" mnemonicParsing="false" onAction="#druecken" text="P" visible="false" />
+      <Button fx:id="qb" layoutX="90.0" layoutY="388.0" mnemonicParsing="false" onAction="#druecken" text="Q" visible="false" />
+      <Button fx:id="rb" layoutX="114.0" layoutY="388.0" mnemonicParsing="false" onAction="#druecken" text="R" visible="false" />
+      <Button fx:id="sb" layoutX="136.0" layoutY="388.0" mnemonicParsing="false" onAction="#druecken" text="S" visible="false" />
+      <Button fx:id="tb" layoutX="158.0" layoutY="388.0" mnemonicParsing="false" onAction="#druecken" text="T" visible="false" />
+      <Button fx:id="ub" layoutX="180.0" layoutY="388.0" mnemonicParsing="false" onAction="#druecken" text="U" visible="false" />
+      <Button fx:id="vb" layoutX="204.0" layoutY="388.0" mnemonicParsing="false" onAction="#druecken" text="V" visible="false" />
+      <Button fx:id="wb" layoutX="227.0" layoutY="388.0" mnemonicParsing="false" onAction="#druecken" text="W" visible="false" />
+      <Button layoutX="253.0" layoutY="388.0" mnemonicParsing="false" onAction="#druecken" text="X" visible="false" fx:id="xb" />
+      <Button fx:id="yb" layoutX="276.0" layoutY="388.0" mnemonicParsing="false" onAction="#druecken" text="Y" visible="false" />
+      <Button fx:id="zb" layoutX="295.0" layoutY="388.0" mnemonicParsing="false" onAction="#druecken" text="Z" visible="false" />
+   </children>
+</Pane>
