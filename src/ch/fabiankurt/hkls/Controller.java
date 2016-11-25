@@ -1,8 +1,9 @@
 package ch.fabiankurt.hkls;
 
-import java.io.File;
+
 import java.io.IOException;
 
+import ch.fabiankurt.hkls.resources.ResourceManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,7 +14,7 @@ import javafx.scene.image.ImageView;
 public class Controller {
     // Button
 	@FXML 
-	protected Button ueberpruefenb;
+	protected Button startenb;
 	@FXML 
 	protected Button neub;
 	@FXML 
@@ -72,59 +73,153 @@ public class Controller {
 	// Label
 	@FXML
 	protected Label wort;
+	@FXML
+	protected Label startsch;
 	
 	// ImageView
 	@FXML
 	protected ImageView bild;
-	
-	
-	
-	// Überprüft ob der Buchstabe im Wort vorkommt
 	@FXML
-	protected void ueberpruefen(ActionEvent event) {
-		wort.setText("Überprüfen"); 
-	}
+	protected ImageView cover;
+	@FXML
+	protected ImageView gewonnen;
+	@FXML
+	protected ImageView verloren;
 	
-	// Überprüft ob der Buchstabe - vorhanden ist
+	
+	//Macht den bestätigten Button unsichtbar
 	@FXML
 	protected void druecken(ActionEvent event) {
+		Werte.falsch1 = 1;
 		Button button = (Button)event.getSource();
 		System.out.println(button.getText());
 		button.setVisible(false);
+		
+		// Überprüft ob der Buchstabe - vorhanden ist
+		for(int i=1;i<Werte.worteraten.length();i++){
+			if(button.getText().charAt(0) == Werte.worteraten.charAt(i) || (button.getText().charAt(0) + 32) == Werte.worteraten.charAt(i)){
+				Werte.erraten[i] = button.getText().charAt(0);
+				Werte.richtig++;
+				}else{
+					Werte.falsch1++;
+					System.out.println(Werte.falsch1);
+				}
+			}
+		wort.setText(String.valueOf(Werte.erraten));
+
+		if(Werte.falsch1 == Werte.worteraten.length()){
+			Werte.falsch2++;
+	        Image image = ResourceManager.loadImage(Werte.falsch2 +".png");
+	        bild.setImage(image);
+			System.out.println("Falsch");
+		}
+		
+		//Gewonnen
+		if(Werte.richtig == Werte.pruefen){
+	        Image image = ResourceManager.loadImage("gewonnen.png");
+	        gewonnen.setImage(image);
+			 bild.setImage(null);
+			 ab.setVisible(false);
+			 bb.setVisible(false);
+			 cb.setVisible(false);
+			 db.setVisible(false);
+			 eb.setVisible(false);
+			 fb.setVisible(false);
+			 gb.setVisible(false);
+			 hb.setVisible(false);
+			 ib.setVisible(false);
+			 jb.setVisible(false);
+			 kb.setVisible(false);
+			 lb.setVisible(false);
+			 mb.setVisible(false);
+			 nb.setVisible(false);
+			 ob.setVisible(false);
+			 pb.setVisible(false);
+			 qb.setVisible(false);
+			 rb.setVisible(false);
+			 sb.setVisible(false);
+			 tb.setVisible(false);
+			 ub.setVisible(false);
+			 vb.setVisible(false);
+			 wb.setVisible(false);
+			 xb.setVisible(false);
+			 yb.setVisible(false);
+			 zb.setVisible(false);
+		}
+		//Verloren
+		if( Werte.falsch2 == 10){
+			wort.setText(Werte.worteraten);
+	        Image image = ResourceManager.loadImage("verloren.png");
+	        verloren.setImage(image);
+			 ab.setVisible(false);
+			 bb.setVisible(false);
+			 cb.setVisible(false);
+			 db.setVisible(false);
+			 eb.setVisible(false);
+			 fb.setVisible(false);
+			 gb.setVisible(false);
+			 hb.setVisible(false);
+			 ib.setVisible(false);
+			 jb.setVisible(false);
+			 kb.setVisible(false);
+			 lb.setVisible(false);
+			 mb.setVisible(false);
+			 nb.setVisible(false);
+			 ob.setVisible(false);
+			 pb.setVisible(false);
+			 qb.setVisible(false);
+			 rb.setVisible(false);
+			 sb.setVisible(false);
+			 tb.setVisible(false);
+			 ub.setVisible(false);
+			 vb.setVisible(false);
+			 wb.setVisible(false);
+			 xb.setVisible(false);
+			 yb.setVisible(false);
+			 zb.setVisible(false);
+		}
+		
+		
 	}	
 		
 	// Startet das Spiel neu
 	@FXML
 	protected void neu(ActionEvent event) throws IOException {
 		
+		Werte.falsch2 = 0;
+		Werte.richtig = 0;
 		
-			
+		startenb.setVisible(false);
 		
+		//Blended Begrüssungs Text aus
+		startsch.setText(null);
 		
-
 		// Erstellen einer Zufallszahl
 		Werte.zufallszahl = (int)(Math.random() * Werte.wortliste.size()); 
 		System.out.println(Werte.zufallszahl);
 		
 		//Wählt ein neues Wort aus Teil 1
 		Werte.worteraten = Werte.wortliste.get(Werte.zufallszahl);
+		Werte.pruefen = Werte.worteraten.length()-1;
 		
-		//Teilt das Wort auf in einzelne Buchstaben
-		Werte.trennung = Werte.worteraten.split("||");
-		Werte.wortlaenge = Werte.worteraten.length();
 
 		//Wählt ein neues Wort aus Teil 2
-		String satz = Werte.trennung[0];
-		for(int i = 0;i<Werte.worteraten.length()-1;i++){
-			satz += "_";
+		Werte.erraten = new char[Werte.worteraten.length()];
+		Werte.erraten[0] = Werte.worteraten.charAt(0);
+		for(int i = 1;i<Werte.worteraten.length();i++){
+			Werte.erraten[i] += '_';
 		}
-		wort.setText(satz);
+		wort.setText(String.valueOf(Werte.erraten));
 		
 		// Setzt das Bild wieder auf Anfang
-		File file = new File("src/ch/fabiankurt/hkls/resources/0.png");
-        Image image = new Image(file.toURI().toString());
+        Image image = ResourceManager.loadImage("0.png");
         bild.setImage(image);
+        cover.setImage(null);
+        gewonnen.setImage(null);
+        verloren.setImage(null);
         
+        //Macht alle Buttons wieder sichtbar
+        neub.setVisible(true);
         ab.setVisible(true);
 		bb.setVisible(true);
 		cb.setVisible(true);
@@ -152,5 +247,6 @@ public class Controller {
 		yb.setVisible(true);
 		zb.setVisible(true);
         
+		 
 	}
 }
